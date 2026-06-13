@@ -8,7 +8,7 @@ with open(template_file, "r", encoding="utf-8") as f:
 
 # Define the contents for the new pages based on the user's single page html
 pages = {
-    'Green_Heaven_Absolute_Perfect.html': {
+    'index.html': {
         'nav_active': 'Home',
         'content': '''
   <!-- HERO -->
@@ -179,12 +179,12 @@ for filename, data in pages.items():
     page_html = template.replace('<!-- INJECT_CONTENT_HERE -->', data['content'])
     
     # Set active navigation correctly
-    if filename == "Green_Heaven_Absolute_Perfect.html":
+    if filename == "index.html":
         # It's already active in the template
         pass
     else:
         # Remove active from Home
-        page_html = page_html.replace('<a href="Green_Heaven_Absolute_Perfect.html" class="active">Home</a>', '<a href="Green_Heaven_Absolute_Perfect.html">Home</a>')
+        page_html = page_html.replace('<a href="index.html" class="active">Home</a>', '<a href="index.html">Home</a>')
         # Add active to the current page
         old_link = f'<a href="{filename}">{data["nav_active"]}</a>'
         new_link = f'<a href="{filename}" class="active">{data["nav_active"]}</a>'

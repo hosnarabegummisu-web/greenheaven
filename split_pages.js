@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const filePath = path.join('d:', 'Hosting', 'sites', 'Green Haven', 'Green_Heaven_Absolute_Perfect.html');
+const filePath = path.join('d:', 'Hosting', 'sites', 'Green Haven', 'index.html');
 let html = fs.readFileSync(filePath, 'utf8');
 
 const oldNavPattern = /<div class="nav-links" id="navigation-menu-links">[\s\S]*?<\/div>/;
 const newNav = `<div class="nav-links" id="navigation-menu-links">
-            <a href="Green_Heaven_Absolute_Perfect.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="features.html">Features</a>
             <a href="packages.html">Packages</a>
@@ -17,7 +17,7 @@ const newNav = `<div class="nav-links" id="navigation-menu-links">
 
 html = html.replace(oldNavPattern, newNav);
 
-let htmlHome = html.replace('<a href="Green_Heaven_Absolute_Perfect.html">Home</a>', '<a href="Green_Heaven_Absolute_Perfect.html" class="active">Home</a>');
+let htmlHome = html.replace('<a href="index.html">Home</a>', '<a href="index.html" class="active">Home</a>');
 fs.writeFileSync(filePath, htmlHome, 'utf8');
 
 const firstCommentIdx = html.indexOf('<!-- =========================================');

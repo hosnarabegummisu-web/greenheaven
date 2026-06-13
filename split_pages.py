@@ -1,13 +1,13 @@
 import os
 import re
 
-file_path = r"d:\Hosting\sites\Green Haven\Green_Heaven_Absolute_Perfect.html"
+file_path = r"d:\Hosting\sites\Green Haven\index.html"
 with open(file_path, "r", encoding="utf-8") as f:
     html = f.read()
 
 old_nav_pattern = r'<div class="nav-links" id="navigation-menu-links">.*?</div>'
 new_nav = '''<div class="nav-links" id="navigation-menu-links">
-            <a href="Green_Heaven_Absolute_Perfect.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="features.html">Features</a>
             <a href="packages.html">Packages</a>
@@ -18,7 +18,7 @@ new_nav = '''<div class="nav-links" id="navigation-menu-links">
 html = re.sub(old_nav_pattern, new_nav, html, flags=re.DOTALL)
 
 # Add active class for home in main file
-html_home = html.replace('<a href="Green_Heaven_Absolute_Perfect.html">Home</a>', '<a href="Green_Heaven_Absolute_Perfect.html" class="active">Home</a>')
+html_home = html.replace('<a href="index.html">Home</a>', '<a href="index.html" class="active">Home</a>')
 with open(file_path, "w", encoding="utf-8") as f:
     f.write(html_home)
 
