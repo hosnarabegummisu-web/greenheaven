@@ -79,30 +79,30 @@
         /* =========================================
            SECTION 1: HOME / ABOUT (Image 22851)
            ========================================= */
-        .home-body { display: flex; padding: 50px 0 40px 50px; position: relative; background: var(--bg-light); }
-        .home-left { width: 56%; z-index: 10; }
-        .home-right { width: 44%; position: relative; min-height: 720px; }
+        .home-body { display: flex; padding: 60px 50px; position: relative; background: var(--bg-light); align-items: center; gap: 40px; }
+        .home-left { width: 55%; z-index: 10; }
+        .home-right { width: 45%; position: relative; display: flex; align-items: center; justify-content: center; min-height: 600px; }
         
         .badge-pill { background-color: var(--primary-light); color: var(--white); padding: 8px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; display: inline-block; margin-bottom: 25px; }
-        .paragraph-text { font-size: 14.5px; color: var(--text-gray); line-height: 1.6; margin-bottom: 30px; max-width: 95%; text-align: justify; }
+        .paragraph-text { font-size: 14.5px; color: var(--text-gray); line-height: 1.6; margin-bottom: 30px; width: 100%; text-align: justify; }
         
         /* 4x2 Home grid metrics */
-        .home-metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 35px; max-width: 95%; }
+        .home-metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 35px; width: 100%; }
         .metric-box { background: var(--white); border: 1px solid #e4ede7; border-radius: 12px; padding: 18px 8px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: 0.3s; }
         .metric-box:hover { transform: translateY(-3px); border-color: var(--secondary); }
         .metric-box i { font-size: 30px; color: var(--primary); margin-bottom: 12px; }
         .metric-box h4 { font-size: 12px; color: var(--text-dark); font-weight: 700; line-height: 1.3; }
         
-        .mv-flex-row { display: flex; gap: 15px; max-width: 95%; }
+        .mv-flex-row { display: flex; gap: 15px; width: 100%; }
         .mv-flex-card { flex: 1; background: var(--white); border: 1px solid #dee7e1; border-radius: 16px; padding: 18px; display: flex; align-items: center; gap: 15px; }
         .mv-icon-bg { width: 48px; height: 48px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(93,160,75,0.2); }
         .mv-flex-card h4 { color: var(--primary); font-size: 16px; font-weight: 700; margin-bottom: 4px; }
         .mv-flex-card p { font-size: 11px; color: var(--text-gray); line-height: 1.4; }
 
         /* Absolute overlapping hero imagery */
-        .img-hero-bld { position: absolute; top: -50px; right: 0; width: 125%; height: 530px; object-fit: cover; border-bottom-left-radius: 65px; z-index: 1; }
-        .img-hero-std { position: absolute; top: 370px; left: -70px; width: 470px; height: 280px; object-fit: cover; border: 12px solid var(--white); border-radius: 24px; box-shadow: 0 15px 40px rgba(0,0,0,0.12); z-index: 3; }
-        .hero-quote-box { position: absolute; bottom: 50px; right: 40px; background: var(--primary); color: var(--white); padding: 25px 30px; border-radius: 14px; width: 330px; text-align: center; z-index: 4; box-shadow: 0 10px 25px rgba(10, 79, 37, 0.2); }
+        .img-hero-bld { width: 100%; height: 550px; object-fit: cover; border-radius: 24px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); z-index: 1; }
+        .img-hero-std { position: absolute; bottom: 40px; left: -50px; width: 340px; height: 240px; object-fit: cover; border: 10px solid var(--white); border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.15); z-index: 3; }
+        .hero-quote-box { position: absolute; top: 40px; right: -20px; background: var(--primary); color: var(--white); padding: 25px 30px; border-radius: 16px; width: 280px; text-align: center; z-index: 4; box-shadow: 0 15px 35px rgba(10, 79, 37, 0.2); }
         .hero-quote-box p { font-size: 14.5px; font-style: italic; line-height: 1.5; font-weight: 500; }
         .hero-quote-box i { color: var(--secondary); font-size: 20px; margin-top: 12px; }
         
@@ -922,14 +922,8 @@
 
             <div class="home-right">
                 <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=80" alt="Hostel Exterior View" class="img-hero-bld">
-                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Students learning together" class="img-hero-std">
-                <div class="hero-quote-box">
-                    <p>"We don't just provide a place to stay, we provide a place to grow, learn and succeed."</p>
-                    <i class="fas fa-leaf"></i>
-                </div>
             </div>
         </div>
-
         <!-- STATS SECTION - Animated Counters -->
         <section class="stats reveal">
             <div class="stat"><div class="num" data-target="500">0</div><div class="lbl">Happy Students</div></div>
@@ -1324,7 +1318,7 @@
                 <div class="rev-author-profile">
                     <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=100&q=80" alt="Resident Student 1">
                     <div class="rev-author-meta">
-                        <h5>রাকিবুল হাসান <i class="fas fa-check-circle"></i></h5>
+                        <h5>Rakibul Hasan <i class="fas fa-check-circle"></i></h5>
                         <p>ছাত্র, আদমজী ক্যান্টনমেন্ট কলেজ</p>
                     </div>
                 </div>
@@ -1338,7 +1332,7 @@
                 <div class="rev-author-profile">
                     <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Parent Profile 2">
                     <div class="rev-author-meta">
-                        <h5>মোছাঃ সালমা বেগম <i class="fas fa-check-circle"></i></h5>
+                        <h5>Mst Salma Begum <i class="fas fa-check-circle"></i></h5>
                         <p>অভিভাবক (শহীদ আনোয়ার গার্লস কলেজ)</p>
                     </div>
                 </div>
@@ -1352,7 +1346,7 @@
                 <div class="rev-author-profile">
                     <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="Resident Student 3">
                     <div class="rev-author-meta">
-                        <h5>তানভীর আহমেদ <i class="fas fa-check-circle"></i></h5>
+                        <h5>Tanvir Ahmed <i class="fas fa-check-circle"></i></h5>
                         <p>ছাত্র, বিএএফ শাহীন কলেজ</p>
                     </div>
                 </div>
