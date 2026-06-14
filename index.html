@@ -579,7 +579,7 @@
             .section-sub-heading::before, .section-sub-heading::after { width: 35px; }
             
             .pkg-includes-row { 
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(3, 1fr);
                 gap: 10px;
             }
             .pkg-inc-card { padding: 15px 8px; }
@@ -839,10 +839,11 @@
             .nav-logo h1 { font-size: 14px; }
             .menu-toggle { font-size: 20px; }
             
-            .home-metrics-grid { grid-template-columns: 1fr; }
-            .feat-grid-5col { grid-template-columns: 1fr; }
+            .home-metrics-grid { grid-template-columns: repeat(3, 1fr); }
+            .feat-grid-5col { grid-template-columns: repeat(3, 1fr); }
+            .pkg-includes-row { grid-template-columns: repeat(3, 1fr); }
             .managers-horizontal-grid { grid-template-columns: 1fr; }
-            .colleges-6col-grid { grid-template-columns: 1fr 1fr; }
+            .colleges-6col-grid { grid-template-columns: repeat(3, 1fr); }
             
             h1, .block-title { font-size: 24px; }
             h2 { font-size: 20px; }
@@ -889,7 +890,6 @@
                     <p style="font-size:7px; color:var(--text-gray); letter-spacing:1.5px; font-weight:600;">YOUR HOME. YOUR SUCCESS.</p>
                 </div>
 
-                <div class="cursive-title">About</div>
                 <h1 class="block-title">Green Heaven<br>Super Hostel</h1>
                 <div class="badge-pill">A Safe, Disciplined & Study-Friendly Home for Students</div>
                 
@@ -1616,3 +1616,4 @@
     </script>
 </body>
 </html>
+ml>
