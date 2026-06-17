@@ -877,6 +877,36 @@
             
             .section-wrapper { margin: 15px auto; }
         }
+
+        /* --- SCROLLING BANNER --- */
+        .banner-marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background: var(--bg-light);
+            padding: 15px 0;
+            display: flex;
+        }
+        .banner-marquee-track {
+            display: flex;
+            gap: 15px;
+            width: max-content;
+            animation: scrollLeftToRight 35s linear infinite;
+        }
+        .banner-marquee-track img {
+            height: 200px;
+            width: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        @keyframes scrollLeftToRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes scrollRightToLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
     </style>
     <!-- Fully Comprehensive Mobile Responsive CSS -->
     <link rel="stylesheet" href="responsive-improvements.css">
@@ -908,6 +938,28 @@
        ========================================= -->
     <div id="home-section" class="section-wrapper">
         <div class="home-body">
+            <!-- SCROLLING BANNER COMPONENT -->
+            <div class="banner-marquee-container" style="margin-bottom: 30px; border-radius: 16px;">
+                <div class="banner-marquee-track" style="animation: scrollRightToLeft 35s linear infinite;">
+                    <!-- First set of images -->
+                    <img src="baner 2.jpg" alt="Banner 2">
+                    <img src="baner 3.jpg" alt="Banner 3">
+                    <img src="Baner 4.jpg" alt="Banner 4">
+                    <img src="Baner 5.jpg" alt="Banner 5">
+                    <img src="Baner 6.jpg" alt="Banner 6">
+                    <img src="Baner 7.jpg" alt="Banner 7">
+                    <img src="baner.jpg" alt="Banner 1">
+                    <!-- Duplicate set for infinite loop -->
+                    <img src="baner 2.jpg" alt="Banner 2">
+                    <img src="baner 3.jpg" alt="Banner 3">
+                    <img src="Baner 4.jpg" alt="Banner 4">
+                    <img src="Baner 5.jpg" alt="Banner 5">
+                    <img src="Baner 6.jpg" alt="Banner 6">
+                    <img src="Baner 7.jpg" alt="Banner 7">
+                    <img src="baner.jpg" alt="Banner 1">
+                </div>
+            </div>
+
             <div class="home-top-wrap">
             <div class="home-left">
                 <div style="margin-bottom: 20px;">
@@ -1261,14 +1313,14 @@
             <div class="leaders-2col-layout">
                 <!-- Director 1 -->
                 <div class="leader-large-profile">
-                    <img src="Chiarman.jpg" alt="Chairman Alhaj Md. Kamal Hossain">
+                    <img src="Chiarman.jpg" alt="Chairman Bg Gen Md Akramul Haque">
                     <div class="leader-large-desc">
                         <div>
                             <div class="leader-tag"><i class="fas fa-award"></i> CHAIRMAN</div>
-                            <h3>Alhaj Md.<br>Kamal Hossain</h3>
+                            <h3>Brig Gen<br>Brig Gen Md Akramul Haque, SPP,psc</h3>
                             <p>At Green Heaven Super Hostel, we are committed to building a safe, disciplined and inspiring environment for students. Education is the key to a better future, and our responsibility is to support students with the best facilities and guidance.</p>
                         </div>
-                        <div class="leader-sign">Alhaj Md. Kamal Hossain<br><span style="font-size:11px; color:#666; font-family:sans-serif; font-weight:400;">Chairman</span></div>
+                        <div class="leader-sign">Brig Gen Md Akramul Haque, SPP,psc<br><span style="font-size:11px; color:#666; font-family:sans-serif; font-weight:400;">Chairman</span></div>
                     </div>
                 </div>
                 <!-- Director 2 -->
@@ -1326,11 +1378,11 @@
             <!-- Accounts Officer node below -->
             <div class="accounts-officer-center-box">
                 <div class="ao-card-node">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Accounts Officer Profile">
+                    <img src="acct officer.png" alt="Accounts Officer Profile">
                     <div class="ao-info-text">
                         <div class="ao-tag"><i class="fas fa-calculator"></i> ACCOUNTS OFFICER</div>
                         <h4>মোঃ জহুরুল ইসলাম</h4>
-                        <p>অ্যাকাউন্টস অফিসার, গ্রিন হেভেন সুপার হোস্টেল</p>
+                        <p>অ্যাকাউন্টস অফিসার, গ্রিন হ্যাভেন সুপার হোস্টেল</p>
                     </div>
                 </div>
             </div>
@@ -1347,7 +1399,7 @@
                 <i class="fab fa-google"></i> Excellent 4.9/5 Based on 500+ Resident Reviews
             </div>
             <h2 style="font-size:38px; color:var(--primary); font-weight:800;">স্টুডেন্ট এবং অভিভাবকদের অভিজ্ঞতা</h2>
-            <p style="font-size:14px; color:var(--text-gray); margin-top:5px;">গ্রিন হেভেন সুপার হোস্টেলের ভেরিফাইড মেম্বারদের কিছু বাস্তব মতামত।</p>
+            <p style="font-size:14px; color:var(--text-gray); margin-top:5px;">গ্রিন হ্যাভেন সুপার হোস্টেলের ভেরিফাইড মেম্বারদের কিছু বাস্তব মতামত।</p>
         </div>
 
         <div class="reviews-3col-cards-grid">
@@ -1369,7 +1421,7 @@
             <div class="review-msg-card">
                 <div>
                     <div class="rev-stars-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="msg">"মেয়ের নিরাপত্তার কথা চিন্তা করে গ্রিন হেভেন গার্লস হোস্টেলে সিট বুকিং দিয়েছিলাম। সিসিটিভি ক্যামেরা ও সার্বক্ষণিক ফিমেল স্টাফদের দায়িত্বশীলতা আমার সকল দুশ্চিন্তা দূর করে দিয়েছে। ওয়াকিং ডিসট্যান্স সত্যিই অনেক বড় প্লাস পয়েন্ট।"</p>
+                    <p class="msg">"মেয়ের নিরাপত্তার কথা চিন্তা করে গ্রিন হ্যাভেন গার্লস হোস্টেলে সিট বুকিং দিয়েছিলাম। সিসিটিভি ক্যামেরা ও সার্বক্ষণিক ফিমেল স্টাফদের দায়িত্বশীলতা আমার সকল দুশ্চিন্তা দূর করে দিয়েছে। ওয়াকিং ডিসট্যান্স সত্যিই অনেক বড় প্লাস পয়েন্ট।"</p>
                 </div>
                 <div class="rev-author-profile">
                     <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Parent Profile 2">
@@ -1415,10 +1467,11 @@
                 <div class="contact-green-sidebar">
                     <h3>Get In Touch</h3>
                     <ul class="c-sidebar-ul">
-                        <li><div class="circle-bg-icon"><i class="fas fa-phone-alt"></i></div> 01323-581036</li>
-                        <li><div class="circle-bg-icon"><i class="fas fa-phone-alt"></i></div> 01323-581037</li>
-                        <li><div class="circle-bg-icon"><i class="fas fa-phone-alt"></i></div> 01726-189747</li>
-                        <li><div class="circle-bg-icon"><i class="fas fa-phone-alt"></i></div> 01779-027454</li>
+                        <li><div class="circle-bg-icon"><i class="fas fa-phone-alt"></i></div> 01323581036</li>
+                        <li><div class="circle-bg-icon"><i class="fas fa-phone-alt"></i></div> 01323581037</li>
+                        <li><div class="circle-bg-icon"><i class="fas fa-phone-alt"></i></div> 01332696850</li>
+                        <li><div class="circle-bg-icon"><i class="fas fa-phone-alt"></i></div> 01332696860</li>
+                        <li><div class="circle-bg-icon"><i class="fas fa-phone-alt"></i></div> 01314549535</li>
                         
                         <li class="custom-media-li">
                             <div class="circle-bg-icon wa"><i class="fab fa-whatsapp"></i></div>
@@ -1474,19 +1527,19 @@
                 <!-- B1 -->
                 <div class="branch-item-box">
                     <div class="b-top-badge">BRANCH 01</div>
-                    <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=400&q=80" alt="Branch 1 exterior facade">
+                    <img src="Branch 1.png" alt="Branch 1 exterior facade">
                     <div class="branch-meta-area">
                         <div>
                             <h4><i class="fas fa-map-marker-alt" style="color:var(--primary); font-size:14px;"></i> DNCC-05, Mirpur 14</h4>
                             <p>Beside Swapno Outlet<br>Dhaka Cantonment, Dhaka-1206</p>
                         </div>
-                        <a href="https://maps.google.com/?q=Mirpur+14+Dhaka+Cantonment" class="branch-map-action-btn" target="_blank"><i class="fas fa-map-marker-alt"></i> View on Map</a>
+                        <a href="https://goo.gl/maps/x8pJncWXJjLMQHp96?g_st=ac" class="branch-map-action-btn" target="_blank"><i class="fas fa-map-marker-alt"></i> View on Map</a>
                     </div>
                 </div>
                 <!-- B2 -->
                 <div class="branch-item-box">
                     <div class="b-top-badge">BRANCH 02</div>
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80" alt="Branch 2 exterior facade">
+                    <img src="Branch 2.png" alt="Branch 2 exterior facade">
                     <div class="branch-meta-area">
                         <div>
                             <h4><i class="fas fa-map-marker-alt" style="color:var(--primary); font-size:14px;"></i> 1152, Batan Bari</h4>
@@ -1498,7 +1551,7 @@
                 <!-- B3 -->
                 <div class="branch-item-box">
                     <div class="b-top-badge">BRANCH 03</div>
-                    <img src="https://images.unsplash.com/photo-1522771731478-44eb10e53f12?auto=format&fit=crop&w=400&q=80" alt="Branch 3 exterior building">
+                    <img src="Branch 3.png" alt="Branch 3 exterior building">
                     <div class="branch-meta-area">
                         <div>
                             <h4><i class="fas fa-map-marker-alt" style="color:var(--primary); font-size:14px;"></i> 1134, Mirpur 14</h4>
@@ -1510,13 +1563,13 @@
                 <!-- B4 -->
                 <div class="branch-item-box">
                     <div class="b-top-badge">BRANCH 04 (LUXURY)</div>
-                    <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=400&q=80" alt="Branch 4 luxury exterior tower">
+                    <img src="Branch 4.png" alt="Branch 4 luxury exterior tower">
                     <div class="branch-meta-area">
                         <div>
                             <h4><i class="fas fa-map-marker-alt" style="color:var(--primary); font-size:14px;"></i> Eurostar Tower</h4>
                             <p>Kochukhet Main Road, NRBC Bank Building<br>Dhaka Cantonment, Dhaka-1206</p>
                         </div>
-                        <a href="https://maps.google.com/?q=Eurostar+Tower+Kochukhet+Dhaka" class="branch-map-action-btn" target="_blank"><i class="fas fa-map-marker-alt"></i> View on Map</a>
+                        <a href="https://maps.app.goo.gl/rVBxCa3xnQXXb3vv9" class="branch-map-action-btn" target="_blank"><i class="fas fa-map-marker-alt"></i> View on Map</a>
                     </div>
                 </div>
             </div>
