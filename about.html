@@ -926,6 +926,51 @@
             .metric-box:hover, .feat-card-node:hover, .pkg-inc-card:hover, .trio-box-card:hover,
             .mgr-box-node:hover, .why-card-item:hover, .college-node-item:hover { animation: none !important; transform: translateY(-4px) !important; }
         }
+        /* --- FLOATING WHATSAPP: attention motion + cycling prompt bubble --- */
+        .whatsapp-floating-action-btn { animation: wa-bob 2.6s ease-in-out infinite; }
+        .whatsapp-floating-action-btn:hover { animation: none; }
+        .whatsapp-floating-action-btn::after {
+            content: ""; position: absolute; inset: 0; border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(37,211,102,0.55);
+            animation: wa-ring 2.2s ease-out infinite;
+            pointer-events: none; z-index: -1;
+        }
+        @keyframes wa-bob {
+            0%, 60%, 100% { transform: translateY(0) rotate(0deg); }
+            10% { transform: translateY(-7px) rotate(-7deg); }
+            20% { transform: translateY(0) rotate(7deg); }
+            30% { transform: translateY(-5px) rotate(-5deg); }
+            40% { transform: translateY(0) rotate(5deg); }
+            50% { transform: translateY(-3px) rotate(0deg); }
+        }
+        @keyframes wa-ring {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+            70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+        .whatsapp-float-bubble {
+            position: fixed; bottom: 42px; right: 100px; z-index: 9999;
+            background: #fff; color: #075e54;
+            font-family: 'Noto Sans Bengali','Poppins',sans-serif;
+            font-size: 14px; font-weight: 700; line-height: 1.2;
+            padding: 10px 16px; border-radius: 24px; white-space: nowrap;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            opacity: 0; transform: translateX(12px) scale(.96);
+            transition: opacity .45s ease, transform .45s cubic-bezier(0.34,1.56,0.64,1);
+            pointer-events: none; cursor: pointer;
+        }
+        .whatsapp-float-bubble.show { opacity: 1; transform: translateX(0) scale(1); pointer-events: auto; }
+        .whatsapp-float-bubble::after {
+            content: ""; position: absolute; top: 50%; right: -7px; transform: translateY(-50%);
+            border-width: 7px 0 7px 8px; border-style: solid;
+            border-color: transparent transparent transparent #fff;
+        }
+        @media (max-width: 640px) {
+            .whatsapp-float-bubble { bottom: 29px; right: 75px; font-size: 12.5px; padding: 8px 13px; max-width: calc(100vw - 90px); white-space: normal; text-align: right; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .whatsapp-floating-action-btn, .whatsapp-floating-action-btn::after { animation: none !important; }
+        }
     </style>
     <!-- Fully Comprehensive Mobile Responsive CSS -->
     <link rel="stylesheet" href="responsive-improvements.css?v=2">
@@ -1125,6 +1170,24 @@
             });
         },{threshold:.4});
         document.querySelectorAll('.stats').forEach(s=>statIO.observe(s));
+    </script>
+
+    <!-- FLOATING WHATSAPP: cycling attention prompts -->
+    <script>
+        (function () {
+            var btn = document.querySelector('.whatsapp-floating-action-btn');
+            if (!btn) return;
+            var msgs = ['এখনি যোগাযোগ করুন', 'আমাকে ক্লিক করুন', 'আপনার প্রয়োজন আমাকে বলুন'];
+            var bubble = document.createElement('span');
+            bubble.className = 'whatsapp-float-bubble';
+            bubble.setAttribute('aria-hidden', 'true');
+            bubble.addEventListener('click', function () { window.open(btn.href, '_blank', 'noopener'); });
+            document.body.appendChild(bubble);
+            var i = 0;
+            function show() { bubble.textContent = msgs[i]; bubble.classList.add('show'); setTimeout(hide, 3200); }
+            function hide() { bubble.classList.remove('show'); i = (i + 1) % msgs.length; setTimeout(show, 1000); }
+            setTimeout(show, 1200);
+        })();
     </script>
 </body>
 </html>
