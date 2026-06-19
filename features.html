@@ -945,6 +945,39 @@
             .facility-card h4 { font-size: 12.5px; }
             .facility-card p { font-size: 10.5px; }
         }
+        /* =========================================
+           INTERACTIVE CONTAINERS: hover lift + playful wiggle
+           ========================================= */
+        .metric-box, .mv-flex-card, .hero-quote-box, .feat-card-node, .pkg-inc-card,
+        .room-item-card, .trio-box-card, .mgr-box-node, .ao-card-node, .review-msg-card,
+        .why-card-item, .walking-alert-card, .branch-item-box, .welcome-colleges-panel,
+        .college-node-item, .leader-large-profile, .facility-card {
+            transition: transform .4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .35s ease, border-color .3s ease;
+        }
+        .mv-flex-card:hover, .hero-quote-box:hover, .room-item-card:hover, .review-msg-card:hover,
+        .ao-card-node:hover, .walking-alert-card:hover, .branch-item-box:hover,
+        .welcome-colleges-panel:hover, .leader-large-profile:hover, .facility-card:hover {
+            transform: translateY(-6px) scale(1.012);
+            box-shadow: 0 18px 38px rgba(10, 79, 37, 0.13);
+            border-color: var(--secondary);
+        }
+        .metric-box:hover, .feat-card-node:hover, .pkg-inc-card:hover, .trio-box-card:hover,
+        .mgr-box-node:hover, .why-card-item:hover, .college-node-item:hover {
+            animation: gh-card-wiggle .55s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            box-shadow: 0 16px 32px rgba(10, 79, 37, 0.12);
+            border-color: var(--secondary);
+        }
+        @keyframes gh-card-wiggle {
+            0%   { transform: translateY(0) rotate(0deg) scale(1); }
+            25%  { transform: translateY(-8px) rotate(-2deg) scale(1.04); }
+            55%  { transform: translateY(-5px) rotate(1.6deg) scale(1.03); }
+            80%  { transform: translateY(-7px) rotate(-0.8deg) scale(1.035); }
+            100% { transform: translateY(-6px) rotate(0deg) scale(1.03); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .metric-box:hover, .feat-card-node:hover, .pkg-inc-card:hover, .trio-box-card:hover,
+            .mgr-box-node:hover, .why-card-item:hover, .college-node-item:hover { animation: none !important; transform: translateY(-4px) !important; }
+        }
     </style>
     <!-- Fully Comprehensive Mobile Responsive CSS -->
     <link rel="stylesheet" href="responsive-improvements.css?v=2">
