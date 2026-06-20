@@ -16,12 +16,13 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebas
 
 // 🔻🔻🔻 এখানে আপনার নিজের প্রজেক্টের তথ্য বসান 🔻🔻🔻
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDBZHOIexTO60ad1rh_0m7pnZnM4El2h6w",
+  authDomain: "greenheavensuperhostel-a5759.firebaseapp.com",
+  projectId: "greenheavensuperhostel-a5759",
+  storageBucket: "greenheavensuperhostel-a5759.firebasestorage.app",
+  messagingSenderId: "237838073266",
+  appId: "1:237838073266:web:1fa0322392a33c12f538ab",
+  measurementId: "G-Q70FB1XJBT"
 };
 // 🔺🔺🔺 এখানে আপনার নিজের প্রজেক্টের তথ্য বসান 🔺🔺🔺
 
