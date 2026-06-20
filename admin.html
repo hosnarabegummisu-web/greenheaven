@@ -159,8 +159,20 @@
         function stars(n){ let h=''; for(let i=0;i<5;i++) h += i<n?'<i class="fas fa-star"></i>':'<i class="far fa-star"></i>'; return h; }
         function provLabel(p){ if(!p) return ''; if(p.includes('facebook')) return '<i class="fab fa-facebook" style="color:#1877F2"></i> Facebook'; if(p.includes('google')) return '<i class="fab fa-google" style="color:#ea4335"></i> Google'; return ''; }
 
-        document.getElementById('googleBtn').addEventListener('click', () => signInWithPopup(auth, googleProvider).catch(e=>showToast('লগইন ব্যর্থ')));
-        document.getElementById('facebookBtn').addEventListener('click', () => signInWithPopup(auth, facebookProvider).catch(e=>showToast('লগইন ব্যর্থ')));
+        function loginError(e) {
+            console.error('Login error:', e);
+            const map = {
+                'auth/operation-not-supported-in-this-environment': 'ফাইলটি সরাসরি (file://) খোলা হয়েছে। একটি লোকাল সার্ভার দিয়ে খুলুন (নিচে দেখুন)।',
+                'auth/unauthorized-domain': 'এই ডোমেইনটি Firebase-এ Authorized নয়। ধাপ ৮ দেখুন।',
+                'auth/operation-not-allowed': 'এই লগইন পদ্ধতি Firebase Console-এ চালু করা নেই। ধাপ ৩/৪ দেখুন।',
+                'auth/popup-blocked': 'ব্রাউজার পপআপ ব্লক করেছে — পপআপ অনুমতি দিন।',
+                'auth/popup-closed-by-user': 'পপআপ বন্ধ হয়ে গেছে। আবার চেষ্টা করুন।',
+                'auth/configuration-not-found': 'Firebase কনফিগ/লগইন পদ্ধতি ঠিকভাবে সেট করা নেই। ধাপ ২–৪ দেখুন।'
+            };
+            showToast(map[e.code] || ('লগইন ব্যর্থ: ' + (e.code || e.message)));
+        }
+        document.getElementById('googleBtn').addEventListener('click', () => signInWithPopup(auth, googleProvider).catch(loginError));
+        document.getElementById('facebookBtn').addEventListener('click', () => signInWithPopup(auth, facebookProvider).catch(loginError));
         logoutBtn.addEventListener('click', () => signOut(auth));
 
         document.getElementById('copyUidBtn').addEventListener('click', () => {

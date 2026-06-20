@@ -1688,10 +1688,15 @@
                 await signInWithPopup(auth, provider);
             } catch (err) {
                 console.error(err);
-                if (err.code === 'auth/account-exists-with-different-credential') {
-                    showError('এই ইমেইল দিয়ে আগে অন্য একটি মাধ্যমে লগইন করা হয়েছে। অনুগ্রহ করে সেই মাধ্যমটি ব্যবহার করুন।');
-                } else if (err.code !== 'auth/popup-closed-by-user' && err.code !== 'auth/cancelled-popup-request') {
-                    showError('লগইন করা যায়নি। ইন্টারনেট সংযোগ ও কনফিগারেশন চেক করুন।');
+                const map = {
+                    'auth/account-exists-with-different-credential': 'এই ইমেইল দিয়ে আগে অন্য একটি মাধ্যমে লগইন করা হয়েছে। অনুগ্রহ করে সেই মাধ্যমটি ব্যবহার করুন।',
+                    'auth/operation-not-supported-in-this-environment': 'ফাইলটি সরাসরি (file://) খোলা হয়েছে। একটি লোকাল সার্ভার দিয়ে খুলুন।',
+                    'auth/unauthorized-domain': 'এই ডোমেইনটি Firebase-এ Authorized নয় (SETUP-GUIDE ধাপ ৮)।',
+                    'auth/operation-not-allowed': 'এই লগইন পদ্ধতি Firebase Console-এ চালু করা নেই (ধাপ ৩/৪)।',
+                    'auth/popup-blocked': 'ব্রাউজার পপআপ ব্লক করেছে — পপআপ অনুমতি দিন।'
+                };
+                if (err.code !== 'auth/popup-closed-by-user' && err.code !== 'auth/cancelled-popup-request') {
+                    showError(map[err.code] || ('লগইন করা যায়নি: ' + (err.code || err.message)));
                 }
             }
         }
